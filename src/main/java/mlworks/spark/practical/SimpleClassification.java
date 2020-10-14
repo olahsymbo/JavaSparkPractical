@@ -41,6 +41,7 @@ public class SimpleClassification {
 
     }
 
+
     public class CSVData implements Serializable {
         Double col1;
         Double col2;
