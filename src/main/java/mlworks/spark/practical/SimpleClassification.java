@@ -3,14 +3,12 @@ package mlworks.spark.practical;
 import java.io.Serializable;
 
 import org.apache.spark.SparkConf;
-import org.apache.spark.mllib.classification.LogisticRegressionModel;
-import org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.types.StructType;
 
-public class TextClassification {
+public class SimpleClassification {
 
     public static void main(String[] args){
 
