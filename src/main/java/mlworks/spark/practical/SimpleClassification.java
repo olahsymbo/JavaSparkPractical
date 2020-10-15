@@ -19,9 +19,16 @@ import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.types.StructType;
 import scala.Tuple2;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.Level;
+
+
 public class SimpleClassification {
 
     public static void main(String[] args){
+
+        Logger.getLogger("org").setLevel(Level.OFF);
+        Logger.getLogger("akka").setLevel(Level.OFF);
 
         //Create a SparkContext to initialize
         SparkConf conf = new SparkConf().setMaster("local").setAppName("Iris-Flower Classification");
@@ -73,8 +80,7 @@ public class SimpleClassification {
         // Get evaluation metrics.
         MulticlassClassificationEvaluator evaluator = new MulticlassClassificationEvaluator()
                 .setLabelCol("transformedSpecies")
-                .setPredictionCol("prediction")
-                .setMetricName("precision");
+                .setPredictionCol("prediction");
         double accuracy = evaluator.evaluate(predictions);
         System.out.println("Test Error = " + (1.0 - accuracy));
     }
